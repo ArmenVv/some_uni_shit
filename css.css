@@ -1,0 +1,114 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+#header-container {
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    gap: 400px;
+    background-color:lavender;
+}
+#open-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    border: none;
+    background-color: transparent;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    position: relative;
+    top: 20px;
+}
+.menu-icon
+{
+    height: 6px;
+    background-color: black;
+    width: 40px;
+}
+#header-title {
+    font-size: 40px;
+    font-family: system-ui, sans-serif;
+    font-weight: 700;
+    align-self: center;
+    position: relative;
+    left: 10px;
+
+}
+#nav-container {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    height: 80px;
+}
+.nav-div {
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    transition: background-color 0.5s ease;
+}
+.nav-div:hover {
+    background-color: #cdcdfa;
+    border-radius: 10px;
+    cursor: pointer;
+  
+}
+#carousel-container {
+    display: flex;
+    flex-direction: row;
+    height: 760px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex: 1 1 calc(33.333% - 10px);
+    position: relative;
+}
+#products-container {
+    display: flex;
+    flex-direction: row;
+    height: 760px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.product-image {
+    height: 240px;
+    width: 240px;
+    object-fit: contain;
+}
+.product-container {
+    border-radius: 20px;
+    border: solid black 6px;
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    height: 300px;
+    align-items: center;
+
+    
+}
+#item3 {
+    height: 660px;
+    width: 600px;
+}
+#item3 img {
+    height: 600px;
+    width: 600px;
+}
+#item1,#item4 {
+    display: none;
+}
+#buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; 
+    top: 750px;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}

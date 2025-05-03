@@ -2,11 +2,13 @@ const url = "https://fakestoreapi.com/products?limit=5";
 const storedItems = document.getElementById("products-container");
 let productList;
 let shifting = false;
+let autoSlider = null;
 
 document.addEventListener('DOMContentLoaded' ,async ()=>{
     try {
         const response = await fetch(url);
         const result = await response.json();
+        autoSlide();
             productList = document.createElement("div");
             productList.className = "productsList";
             storedItems.appendChild(productList);
@@ -47,6 +49,8 @@ function updateActiveCard() {
 function handleNext() {
    if(shifting) return;
     shifting = true;
+    clearInterval(autoSlider);
+    autoSlide();
    productList.style.transition = "transform 0.5s ease";
    productList.style.transform = "translateX(-270px)";
    productList.addEventListener("transitionend", () => {
@@ -63,6 +67,8 @@ function handleNext() {
 function handlePrev() {
     if(shifting) return;
     shifting = true;
+    clearInterval(autoSlider);
+    autoSlide();
     productList.style.transition = "transform 0.5s ease";
     productList.style.transform = "translateX(270px)";
     productList.addEventListener("transitionend", () => {
@@ -76,7 +82,7 @@ function handlePrev() {
     
 }
 
-const autoShitt = setInterval(() => {
-    handleNext();
+function autoSlide(){
+    clearInterval(autoSlider);
+    autoSlider = setInterval(() => {handleNext();}, 3000);
 }
-, 3000);

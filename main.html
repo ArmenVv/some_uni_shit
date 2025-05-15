@@ -3,6 +3,8 @@
     <meta charset="UTF-8">
     <title>My Project</title>
     <link rel="stylesheet" href="css.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
     <header id="header-container">
@@ -10,9 +12,9 @@
             Market
         </div>
         <nav id="nav-container">
-            <div class="nav-div">Main</div>
-            <div class="nav-div">About us</div>
-            <div class="nav-div">Contact us</div>
+            <div class="nav-div"><a href="main.html">Main</a></div>
+            <div class="nav-div"><a href="aboutus.html">About us</a></div>
+            <div class="nav-div"><a href="contactus.html">Contact us</a></div>
         </nav>
     </header>
     <div id="body-container">
@@ -21,9 +23,9 @@
 
             </div>
             <div id="buttons-container">
-                <button onclick="handlePrev()">Prev</button>
-                <button onclick="handleNext()">Next</button>
-            </div>
+    <button onclick="handlePrev()">◀</button>
+    <button onclick="handleNext()">▶</button>
+</div>
         </div>
     </div>
     <script src="script.js"></script>

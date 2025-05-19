@@ -1,5 +1,6 @@
 const url = "https://fakestoreapi.com/products?limit=5";
 const storedItems = document.getElementById("products-container");
+const storeProducts = document.getElementById("store-container")
 let productList;
 let shifting = false;
 let autoSlider = null;
@@ -9,6 +10,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         const response = await fetch(url);
         const result = await response.json();
+        const storeResponse = await fetch("https://fakestoreapi.com/products")
+        const storeResult = await storeResponse.json();
 
         productList = document.createElement("div");
         productList.className = "productsList";
@@ -29,6 +32,27 @@ document.addEventListener('DOMContentLoaded', async () => {
             card.appendChild(title);
             productList.appendChild(card);
         });
+
+        storeResult.forEach(item=>{
+            const card = document.createElement("div");
+            card.className = "store-product";
+            const title = document.createElement("p");
+            title.textContent = item.title.length > 20 ? item.title.slice(0, 20) + '...' : item.title;
+            title.className = "store-product-title";
+            const img = document.createElement("img");
+            img.src = item.image;
+            img.alt = item.title;
+            img.className = "store-product-image";
+            const price = document.createElement("span");
+            price.textContent = item.price + "$";
+            price.className = "store-product-price";
+            card.appendChild(img);
+            card.appendChild(title);
+            card.appendChild(price);
+            storeProducts.appendChild(card);
+            
+            
+        })
 
         calculateCardWidth();
         updateActiveCard();
